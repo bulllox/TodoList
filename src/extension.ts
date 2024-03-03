@@ -54,7 +54,7 @@ class TodoListProvider implements vscode.WebviewViewProvider {
 					case 'deleteEntry':
 						console.log(message.data);
 						vscode.window
-							.showInformationMessage("Den Eintrag wirklich löschen?", "Yes", "No")
+							.showInformationMessage("Do you want to delete this Entry?", "Yes", "No")
 							.then(answer => {
 								if (answer === "Yes") {
 									this.deleteEntry(message.data);
@@ -67,7 +67,7 @@ class TodoListProvider implements vscode.WebviewViewProvider {
 					case "deleteCat":
 
 						vscode.window
-							.showInformationMessage("Die Kategorie und dessen Einträge Wirklich löschen?", "Yes", "No")
+							.showInformationMessage("Do you realy want to delete the Category?", "Yes", "No")
 							.then(answer => {
 								if (answer === "Yes") {
 									this.deleteCat(message.data);
@@ -78,7 +78,7 @@ class TodoListProvider implements vscode.WebviewViewProvider {
 						break;
 					case "clearAll":
 						vscode.window
-							.showInformationMessage("Wirklich alles löschen?", "Yes", "No")
+							.showInformationMessage("Are you sure to Clear the List?", "Yes", "No")
 							.then(answer => {
 								if (answer === "Yes") {
 									this.clearAll();
@@ -245,11 +245,11 @@ class TodoListProvider implements vscode.WebviewViewProvider {
 
 <body class="bg-transparent">
     <div class="buttons mb-3">
-        <button id="addEntry"><i class="fa-solid fa-folder-plus" style="color: #ffffff;" title="Eintrag Erstellen"></i></button>
+        <button id="addEntry"><i class="fa-solid fa-folder-plus" style="color: #ffffff;" title="Add Entry"></i></button>
         <button id="addCat"><i class="fa-solid fa-layer-group" style="color: #ffffff;"
-                title="Kategorie erstellen"></i></button>
+                title="Add Category"></i></button>
         <button id="clearAll"><i class="fas fa-trash" style="color: #ffffff;"
-                title="Alles löschen"></i></button>
+                title="Clear All"></i></button>
     </div>
        <div id="progress-tracker">
         <ul id="categoryList"></ul>

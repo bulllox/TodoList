@@ -80,7 +80,7 @@ class TodoListProvider {
                 case 'deleteEntry':
                     console.log(message.data);
                     vscode.window
-                        .showInformationMessage("Den Eintrag wirklich löschen?", "Yes", "No")
+                        .showInformationMessage("Do you want to delete this Entry?", "Yes", "No")
                         .then(answer => {
                         if (answer === "Yes") {
                             this.deleteEntry(message.data);
@@ -92,7 +92,7 @@ class TodoListProvider {
                     break;
                 case "deleteCat":
                     vscode.window
-                        .showInformationMessage("Die Kategorie und dessen Einträge Wirklich löschen?", "Yes", "No")
+                        .showInformationMessage("Do you realy want to delete the Category?", "Yes", "No")
                         .then(answer => {
                         if (answer === "Yes") {
                             this.deleteCat(message.data);
@@ -104,7 +104,7 @@ class TodoListProvider {
                     break;
                 case "clearAll":
                     vscode.window
-                        .showInformationMessage("Wirklich alles löschen?", "Yes", "No")
+                        .showInformationMessage("Are you sure to Clear the List?", "Yes", "No")
                         .then(answer => {
                         if (answer === "Yes") {
                             this.clearAll();
